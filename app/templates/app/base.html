@@ -25,27 +25,28 @@
     <section id="navbar-header">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">ADVISE <span>NEPAL</span></a>
+              <a class="navbar-brand" href="/">ADVISE <span>NEPAL</span></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" aria-current="page" href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Trending</a>
+                    <a class="nav-link" href="{% url 'all-news' %}">Trending</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       News Category
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Sports</a></li>
+                      <li><a class="dropdown-item" href="{% url 'all-news' %}">All Types</a></li>
+                      <!-- <li><a class="dropdown-item" href="#">Sports</a></li>
                       <li><a class="dropdown-item" href="#">Music</a></li>
                       <li><a class="dropdown-item" href="#">Kollywood</a></li>
-                      <li><a class="dropdown-item" href="#">Politics</a></li>
+                      <li><a class="dropdown-item" href="#">Politics</a></li> -->
                     </ul>
                   </li>
                 </ul>
@@ -58,11 +59,18 @@
           </nav> 
     </section>
      
-    
     {% block background_video %} {% endblock background_video %}
-    {% block livesale %} {% endblock livesale %}
+    {% block main-part %} {% endblock main-part %}
     {% block main-content %} {% endblock main-content %}
 
+    <!-- socail media part -->
+    <div class="social-media text-center">
+      <i class="fa fa-fire" aria-hidden="true"></i>
+      <i class="fa fa-facebook-square"></i>
+      <i class="fa fa-instagram"></i>
+      <i class="fa fa-twitter"></i>
+
+    </div>
     <!-- Start Footer -->
     <footer class="container-fluid bg-dark text-center p-2 mt-5">
         <small class="text-white">Copyright &copy; 2021 || Designed By GeekyShows || </small>
