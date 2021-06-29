@@ -8,4 +8,6 @@ urlpatterns = [
     path('all-news/', views.all_news, name="all-news"),
     path('detail/<int:id>/', views.detail, name="detail"),
     path('registration/', views.CustomerRegistrationView.as_view(), name="registration")
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

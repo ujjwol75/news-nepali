@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, News, Comments
+from .models import Category, News, Comments, Videos
 # Register your models here.
 
 admin.site.register(Category)
@@ -12,3 +12,4 @@ class CommentsAdmin(admin.ModelAdmin):
 
 admin.site.register(News)
 admin.site.register(Comments)
+admin.site.register(Videos)

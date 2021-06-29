@@ -10,12 +10,36 @@
     <title>Document</title>
 </head>
 <body>
-    
-    {% block background_video %} 
-        <div class="background_video">
-            <div class="video-wrapper">
-                <video src="{% static 'app/images/intro.mp4' %}" muted loop autoplay></video>
+    {% block modal-form %}
+    <div class="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div class="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endblock modal-form %}
+    {% block background_video %} 
+        <section class="background_video">
+            {% for x in last_video %}
+            <div class="video-wrapper">
+                <video class="video-fluid" muted loop autoplay>
+                    <source src="{{x.video.url}}">
+                </video>
+                
+            </div>
+                          
+            {% endfor %}
             <div class="video-overlay" ></div>
             <div class="wrap-playbutton">
                 <div class="circle"></div>
@@ -23,12 +47,12 @@
             </div>
             
             <div class="video-text">
-                <h1>News of NEPAL <i class="fa fa-fire" aria-hidden="true"></i></h1>
+                <h1>News of NEPAL <i class="fab fa-angellist"></i></h1>
                 <p class="paragraph">Namaste – It is a Nepalese greeting. It means: The light within <br>me bows to the light within you.</p>
                 <a href="{% url 'registration' %}" class="btn btn-warning">Register Now</a>
             </div>
             
-        </div>
+        </section>
     {% endblock background_video %}
 
     {% block main-part %}
@@ -92,6 +116,7 @@
         <!-- End Single Category -->
     </main>
     {% endblock main-part %}
+
     
 </body>
 </html>

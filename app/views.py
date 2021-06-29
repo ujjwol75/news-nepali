@@ -1,20 +1,19 @@
 from django.shortcuts import render
-from .models import Category, News
+from .models import Category, News, Videos
 from .forms import CustomerRegistrationForm
 from django.contrib import messages
 from django.views import View
-
-
 
 # Create your views here.
 def base(request):
     return render(request, 'app/base.html')
 
 def home(request):
+    last_video = Videos.objects.all()
     first_news = News.objects.first()
     three_news = News.objects.all()[1:4]
     three_categories = Category.objects.all()[0:3]
-    return render(request, 'app/home.html', {'first_news':first_news, 'three_news':three_news, 'three_categories':three_categories})
+    return render(request, 'app/home.html', {'first_news':first_news, 'three_news':three_news, 'three_categories':three_categories, 'last_video':last_video})
 
 def all_news(request):
     all_news = News.objects.all()

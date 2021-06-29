@@ -36,3 +36,9 @@ class Comments(models.Model):
 
     def __str__(self):
         return self.comment
+
+class Videos(models.Model):
+    video = models.FileField(upload_to='videos/%y')
+     
+    class Meta:
+        verbose_name_plural = 'Videos'
